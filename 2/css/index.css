@@ -1,0 +1,99 @@
+:root {
+   --bg-color:#354147;
+   --white:#fff;
+   --black:#000;
+   --font1 : 'DM Serif Display', serif;
+   --font2 : 'Gilroy-Regular', sans-serif;
+}
+
+/* 배경 */
+body {
+   background-color: var(--bg-color);
+}
+
+.bg-img1 {
+   position: absolute;
+   left:0;
+   top: 0;
+   width: 100%;
+}
+.bg-img2 {
+   position: absolute;
+   left:0;
+   top: 464px;
+   width: 100%;
+}
+.bg-img3 {
+   position: absolute;
+   left:0;
+   top: 768px;
+   width: 100%;
+}
+
+/* 헤더 */
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: absolute;
+   left: 80px;
+   right: 80px;
+   top: 64px;
+   z-index: 100;
+   background-color: green;
+}
+
+.h1 {
+   font-size: 32px;
+   line-height: 38.4px;
+   letter-spacing: 0.01em;
+   font-family: var(--font1);
+   font-weight: 400;
+   color: var(--white);
+}
+
+.gnb {
+   display: flex;
+   gap: 40px;
+}
+
+.gnb a {
+   font-weight: 700;
+   color: var(--white);
+   font-size: 18px;
+   line-height: 21.76px;
+}
+
+.btn-account {
+   display: flex;
+   align-items: center;
+   font-size: 17px;
+   line-height: 20.55px;
+   color: var(--white);
+}
+
+.btn-account::before { /*before는 inline요소이므로, 가로세로 사이즈를 위해 inline-block을 하거나, 부모를 display:flex로 설정*/
+   content: '';
+   background: url(../image/ico_member.svg);
+   width: 24px;
+   height: 24px;
+   margin-right: 8px;
+}
+
+/* visual */
+.visual {
+   border: solid 1px red;
+   height: 1200px;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   z-index: 20;
+}
+
+.sns {
+   position: absolute;
+   left: 0;
+   top: 50%; /*컨텐츠 중앙 기준 아래쪽에서 시작*/
+   transform: translateY(-50%); /*top:50%된걸 내용의 50%크기만큼 반대로 옮겨서 결국 중앙에 오게 한다*/
+}
