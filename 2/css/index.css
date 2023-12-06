@@ -1,6 +1,8 @@
 :root {
    --bg-color:#354147;
    --white:#fff;
+   --white-5:rgba(255,255,255,0.5);
+   --gold: rgba(251, 215, 132, 1);
    --black:#000;
    --font1 : 'DM Serif Display', serif;
    --font2 : 'Gilroy-Regular', sans-serif;
@@ -16,18 +18,21 @@ body {
    left:0;
    top: 0;
    width: 100%;
+   z-index: -1;
 }
 .bg-img2 {
    position: absolute;
    left:0;
    top: 464px;
    width: 100%;
+   z-index: -1;
 }
 .bg-img3 {
    position: absolute;
    left:0;
    top: 768px;
    width: 100%;
+   z-index: -1;
 }
 
 /* 헤더 */
@@ -40,7 +45,6 @@ body {
    right: 80px;
    top: 64px;
    z-index: 100;
-   background-color: green;
 }
 
 .h1 {
@@ -92,8 +96,110 @@ body {
 }
 
 .sns {
-   position: absolute;
-   left: 0;
+   position: fixed;
+   left: 80px;
    top: 50%; /*컨텐츠 중앙 기준 아래쪽에서 시작*/
    transform: translateY(-50%); /*top:50%된걸 내용의 50%크기만큼 반대로 옮겨서 결국 중앙에 오게 한다*/
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
 }
+
+.sns__title {
+   writing-mode: vertical-rl;
+   text-orientation: mixed;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 21.76px;
+   color: var(--white);
+}
+
+.btn-insta {
+   display: inline-block;
+   width: 24px;
+   height: 24px;
+   background: url(../image/ico_insta.svg);
+}
+
+.btn-twitter {
+   display: inline-block;
+   width: 24px;
+   height: 24px;
+   background: url(../image/ico_twitter.svg);
+}
+
+.quick {
+   position: fixed;
+   right: 80px;
+   top: 50%;
+   transform: translateY(-50%);
+   /* z-index: 20; */
+}
+
+.quick a {
+   display: block;
+   padding-right: 32px;
+   text-align: right;
+   font-size: 18px;
+   line-height: 60px;
+   color: var(--white);
+   border-right:3px solid var(--white-5);
+}
+
+.quick a.active {
+   border-color: var(--white);
+}
+
+.visual__copy {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+   display: grid;
+   gap: 32px;
+}
+
+.visual__copy .subtitle {
+   font-size: 18px;
+   font-weight: 800;
+   line-height: 22px;
+   letter-spacing: 6px;
+   color: var(--gold);
+   display: flex;
+   align-items: center;
+   gap: 32px;
+}
+
+.visual__copy .subtitle::before {
+   content: '';
+   width: 72px;
+   height: 2px;
+   background-color: var(--gold);
+}
+
+.visual__copy .maintitle {
+   font-family: var(--font1);
+   color: var(--white);
+   font-weight: 300;
+   font-size: 88px;
+   line-height: 100px;
+}
+
+.visual__copy .txt-guide {
+   display: flex;
+   align-items: center;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 22px;
+   color: var(--white);
+}
+
+.visual__copy .txt-guide::after {
+   content: '';
+   width: 16px;
+   height: 24px;
+   margin-left: 16px;
+   background: url(../image/ico_arrow_down.svg) no-repeat;
+}
+
+https://www.youtube.com/watch?v=DEy_mGy9dGI
