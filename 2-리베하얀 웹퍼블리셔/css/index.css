@@ -1,0 +1,381 @@
+:root {
+   --bg-color: #0B1D26;
+   --white:#fff;
+   --white-5:rgba(255,255,255,0.5);
+   --white-1:rgba(255,255,255,0.1);
+   --gold: rgba(251, 215, 132, 1);
+   --black:#000;
+   --font1 : 'DM Serif Display', serif;
+   --font2 : 'Gilroy-Regular', sans-serif;
+}
+
+body {
+   background-color: var(--bg-color);
+   overflow-x: hidden; /*배경이미지 1920px해서 생긴 스크롤 없애기*/
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+/* ———— 배경이미지 ———— */
+.bg-img1 {
+   position: absolute;
+   left:0;
+   top: 0;
+   width: 1920px;
+   z-index: -2;
+   animation: bg1 1 3s both;
+}
+.bg-img2 {
+   position: absolute;
+   left:0;
+   top: 464px;
+   width: 1920px;
+   z-index: -1;
+   animation: bg2 1 2s .5s both;
+}
+.bg-img3 {
+   position: absolute;
+   left:0;
+   top: 768px;
+   width: 1920px;
+   z-index: -1;
+   animation: bg2 1 1.5s .2s both;
+}
+
+/* ———— 애니메이션 ———— */
+@keyframes bg1 {
+   0% { opacity:0;}
+   50% { opacity:1}
+}
+@keyframes bg2 {
+   0% { transform: translateY(200px); opacity:0}
+   50% { opacity:1}
+   100% { transform: translateY(0); opacity: 1;}
+}
+@keyframes txt {
+   0% { transform: translateX(-50px); opacity:0}
+   100% { transform: translateX(0); opacity: 1;}
+}
+
+/* ———— 헤더 ———— */
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: absolute;
+   left: 80px;
+   right: 80px;
+   top: 64px;
+   z-index: 100;
+}
+
+.h1 {
+   font-size: 32px;
+   line-height: 38.4px;
+   letter-spacing: 0.01em;
+   font-family: var(--font1);
+   font-weight: 400;
+   color: var(--white);
+}
+
+.gnb {
+   display: flex;
+   gap: 40px;
+}
+
+.gnb a {
+   font-weight: 700;
+   color: var(--white);
+   font-size: 18px;
+   line-height: 21.76px;
+}
+
+.btn-account {
+   display: flex;
+   align-items: center;
+   font-size: 17px;
+   line-height: 20.55px;
+   color: var(--white);
+}
+
+.btn-account::before { /*before는 inline요소이므로, 가로세로 사이즈를 위해 inline-block을 하거나, 부모를 display:flex로 설정*/
+   content: '';
+   background: url(../image/ico_member.svg);
+   width: 24px;
+   height: 24px;
+   margin-right: 8px;
+}
+
+/* ———— 메인 상단(비주얼) ———— */
+.visual {
+   height: 1200px;
+}
+
+.sns {
+   position: fixed;
+   left: 80px;
+   top: 50%; /*컨텐츠 중앙 기준 아래쪽에서 시작*/
+   transform: translateY(-50%); /*top:50%된걸 내용의 50%크기만큼 반대로 옮겨서 결국 중앙에 오게 한다*/
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+}
+
+.sns__title {
+   writing-mode: vertical-rl;
+   text-orientation: mixed;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 21.76px;
+   color: var(--white);
+}
+
+.btn-insta {
+   display: inline-block;
+   width: 24px;
+   height: 24px;
+   background: url(../image/ico_insta.svg);
+}
+
+.btn-twitter {
+   display: inline-block;
+   width: 24px;
+   height: 24px;
+   background: url(../image/ico_twitter.svg);
+}
+
+.quick {
+   position: fixed;
+   right: 80px;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 20;
+}
+
+.quick a {
+   display: block;
+   padding-right: 32px;
+   text-align: right;
+   font-size: 18px;
+   line-height: 60px;
+   color: var(--white);
+   border-right:3px solid var(--white-5);
+}
+
+.quick a.active {
+   border-color: var(--white);
+}
+
+.visual__copy {
+   position: absolute;
+   left: 50%;
+   top: 287px;
+   transform: translateX(-50%);
+   display: grid;
+   gap: 32px;
+}
+
+.subtitle {
+   font-size: 18px;
+   font-weight: 800;
+   line-height: 22px;
+   letter-spacing: 6px;
+   color: var(--gold);
+   display: flex;
+   align-items: center;
+   gap: 32px;
+}
+
+.subtitle::before {
+   content: '';
+   width: 72px;
+   height: 2px;
+   background-color: var(--gold);
+}
+
+.visual__copy .subtitle {
+   animation: txt 1 .7s 1s both;
+}
+
+.visual__copy .maintitle {
+   font-family: var(--font1);
+   color: var(--white);
+   font-weight: 300;
+   font-size: 88px;
+   line-height: 100px;
+   animation: txt 1 .7s 1.3s both;
+}
+
+.visual__copy .txt-guide {
+   display: flex;
+   align-items: center;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 22px;
+   color: var(--white);
+   animation: txt 1 .7s 1.5s both;
+}
+
+.visual__copy .txt-guide::after {
+   content: '';
+   width: 16px;
+   height: 24px;
+   margin-left: 16px;
+   background: url(../image/ico_arrow_down.svg) no-repeat;
+}
+
+.dimed {
+   background: linear-gradient(330.24deg, rgba(11, 29, 38, 0) 31.06%, #0B1D26 108.93%);
+   position: absolute;
+   height: 1200px;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   z-index: -1;
+}
+
+.gradient-content {
+   background: linear-gradient(180deg, rgba(11, 29, 38, 0) 0%, #0B1D26 61.38%);
+   height: 700px;
+}
+
+/* ———— 메인 하단(컨텐츠) ———— */
+.index-contents {
+   margin: -460px auto 0;
+   width: 1462px;
+   display: grid;
+   gap: 200px;
+}
+
+.block {
+   display: flex;
+   padding-left: 150px;
+   gap: 114px;
+   position: relative;
+}
+
+.block:nth-of-type(even) {
+   flex-direction: row-reverse;
+}
+
+.block:nth-of-type(even) .block__count {
+   left: 680px;
+}
+
+.block > div {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 27px;
+}
+
+.block img {
+   width: 556px;
+}
+
+.block .subtitle {
+   order: 1;
+}
+
+.block__title {
+   order: 2;
+   font-family: var(--font1);
+   color: var(--white);
+   font-weight: lighter;
+   font-size: 64px;
+   line-height: 77px;
+}
+
+.block__content {
+   order: 3;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 32px;
+   color: var(--white);
+}
+
+.block__more {
+   order: 4;
+   color: var(--gold);
+   font-size: 18px;
+   line-height: 22px;
+   display: flex;
+   align-items: center;
+   gap: 16px;
+}
+
+.block__more::after {
+   content: '';
+   width: 24px;
+   height: 16px;
+   background: url(../image/ico_arrow_right.svg);
+}
+
+.block__count {
+   position: absolute;
+   left: 0;
+   top: 38px;
+   font-weight: 700;
+   font-size: 240px;
+   line-height: 240px;
+   color: var(--white-1);
+   letter-spacing: -3px;
+}
+
+/* ———— 푸터 ———— */
+.footer {
+   display: flex;
+   justify-content: space-between;
+   margin: 200px auto 120px;
+   width: 1462px;
+}
+
+/* ———— 푸터 왼쪽 ———— */
+.footer__left {
+   display: grid;
+   /* grid-template-columns: 1fr; */
+   grid-template-rows: minmax(24px, auto) 1fr minmax(32px,auto);
+}
+
+.footer__txt {
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 32px;
+   color: var(--white);
+}
+
+.footer__copy {
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 32px;
+   color: var(--white-5);
+}
+
+/* ———— 푸터 오른쪽 ———— */
+.footer__right {
+   display: flex;
+   gap: 212px;
+}
+
+.footer__nav h2 {
+   font-weight: 700;
+   font-size: 24px;
+   line-height: 32px;
+   color: var(--gold);
+   padding-bottom: 8px;
+}
+
+.footer__nav li {
+   padding-top: 16px;
+}
+
+.footer__nav a {
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 32px;
+   color: var(--white);
+}
